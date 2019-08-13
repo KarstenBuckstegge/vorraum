@@ -1,0 +1,17 @@
+{
+  "name": "vorraum",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "styles": "node-sass styles/ -o dist/ -w"
+  },
+  "author": "KarstenBuckstegge",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

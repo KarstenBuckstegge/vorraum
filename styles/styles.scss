@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 1;
+    transition: opacity .4s ease;
+}
+.loading--done {
+    opacity: 0;
+}
+
+.intro {
+    display: flex;
+    max-width: 80%;
+    opacity: 0;
+    transition: opacity .8s .8s ease;
+}
+
+.intro--ready {
+    opacity: 1;
+}
+
+.intro__animation {
+    max-height: 500px;
+}
