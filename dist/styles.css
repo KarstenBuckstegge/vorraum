@@ -8,13 +8,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  min-width: 100vw;
+  height: 100vh;
+  width: 100vw;
   font-family: 'Roboto', sans-serif;
-  background-image: url("../img/bg.jpg");
+  background-image: url("../static/bg.jpg");
   background-size: cover;
   background-position: center;
-  color: #3d4144; }
+  color: #2d2d2a;
+  overflow: hidden; }
+
+.h1 {
+  font-size: 150px;
+  font-weight: 800;
+  margin-top: -40px;
+  color: #a5630b;
+  opacity: 0.8; }
 
 .loading {
   position: fixed;
@@ -29,31 +37,80 @@ body {
 
 .intro {
   position: absolute;
-  display: flex;
-  align-items: center;
   top: 0;
-  right: 10vw;
+  right: 0;
   bottom: 0;
-  left: 10vw;
-  max-width: 80vw;
+  left: 0;
   opacity: 0;
   transition: opacity .8s .8s ease; }
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20% 0;
+  font-size: 2em;
+  text-align: center;
+  color: #2d2d2a;
+  opacity: 0;
+  transition: opacity 0.8s ease; }
+
+.intro__link {
+  position: absolute;
+  width: 26.66667vw;
+  top: 50vh;
+  transform: translateY(-50%);
+  pointer-events: none;
+  will-change: top, right, bottom, left, transform;
+  transition: opacity 0.8s ease, transform 0.8s ease, top 0.8s ease, right 0.8s ease, bottom 0.8s ease, left 0.8s ease; }
+  .intro__link:hover .overlay {
+    opacity: 1; }
 
 .intro--ready {
   opacity: 1; }
 
-.intro__animation {
-  transition: opacity .8s ease;
-  max-height: 700px;
-  margin: -20px; }
+.a_photo {
+  left: 10vw;
+  transform-origin: top left; }
 
-.intro--done .intro__animation {
-  opacity: 0; }
+.a_design {
+  left: 36.66667vw;
+  transform-origin: bottom left; }
+  .a_design .overlay {
+    align-items: flex-start; }
+
+.a_illu {
+  right: 10vw;
+  transform-origin: top right; }
+
+.intro--done .intro__link {
+  pointer-events: auto; }
+
+.intro--done .a_photo {
+  top: 0;
+  left: 0;
+  transform: translateY(-10%) scale(0.5); }
+
+.intro--done .a_design {
+  left: 0;
+  top: auto;
+  bottom: 0;
+  transform: translateY(10%) scale(0.5); }
+
+.intro--done .a_illu {
+  right: 0;
+  top: 0;
+  transform: translateY(-10%) scale(0.5); }
 
 .main {
   opacity: 0;
   transform: perspective(100px) translateZ(-300px);
-  transition: opacity .8s .8s ease, transform .8s .8s ease; }
+  transition: opacity .4s ease, transform .4s ease; }
 
 .main--show {
   opacity: 1;
