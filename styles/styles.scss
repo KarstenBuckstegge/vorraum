@@ -1,5 +1,7 @@
-$fontColor: #2d2d2a;
+$base: 4px;
 $animationBase: .8s ease;
+$fontColor: #2d2d2a;
+$orange: #a5630b;
 
 $introWidth: 80vw;
 $introPadding: (100vw - $introWidth) / 2;
@@ -27,10 +29,19 @@ body {
 }
 
 .h1 {
-    font-size: 150px;
+    margin-top: $base * -10;
+    font-size: 140px;
     font-weight: 800;
-    margin-top: -40px;
-    color: #a5630b;
+    line-height: 0.8em;
+    color: $orange;
+    opacity: 0.8;
+}
+
+.h2 {
+    margin-left: $base * 5;
+    font-size: 24px;
+    font-weight: 200;
+    color: $orange;
     opacity: 0.8;
 }
 
@@ -68,7 +79,7 @@ body {
     padding: 20% 0;
     font-size: 2em;
     text-align: center;
-    color: $fontColor;
+    color: $orange;
     opacity: 0;
     transition: opacity $animationBase;
 }
@@ -143,3 +154,26 @@ body {
     transform: perspective(100px) translateZ(0);
 }
 
+.footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: $base*2 $base*8 $base*4;
+}
+
+.footer__link {
+    color: $fontColor;
+    text-decoration: none;
+    transition: color.4s ease;
+
+    &:hover {
+        color: $orange;
+    }
+}
+
+.footer__divider {
+    margin: 0 $base*2;
+}
