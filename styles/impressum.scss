@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('../static/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main {
+    max-width: 500px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, .8);
+}
+
+h1, h2, h3, h4 {
+    margin: 20px 0 10px;
+}
