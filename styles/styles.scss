@@ -104,7 +104,7 @@ body {
 }
 
 .a_photo {
-    left: $introPadding;
+    left: $introPadding + 5vw;
     transform-origin: top left;
 }
 .a_design {
@@ -116,7 +116,7 @@ body {
     }
 }
 .a_illu {
-    right: $introPadding;
+    right: $introPadding + 5vw;
     transform-origin: top right;
 }
 

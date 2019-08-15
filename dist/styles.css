@@ -83,7 +83,7 @@ body {
   opacity: 1; }
 
 .a_photo {
-  left: 10vw;
+  left: 15vw;
   transform-origin: top left; }
 
 .a_design {
@@ -93,7 +93,7 @@ body {
     align-items: flex-start; }
 
 .a_illu {
-  right: 10vw;
+  right: 15vw;
   transform-origin: top right; }
 
 .intro--done .intro__link {
