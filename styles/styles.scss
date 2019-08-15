@@ -2,10 +2,26 @@ $base: 4px;
 $animationBase: .8s ease;
 $fontColor: #2d2d2a;
 $orange: #a5630b;
+$small-breakpoint: 1024px;
 
 $introWidth: 80vw;
 $introPadding: (100vw - $introWidth) / 2;
 $introAnimationWidth: $introWidth/3;
+
+$introMobilePadding: 60px;
+$introAnimationMobileHeight: 35vh;
+
+@mixin mediaSmall {
+    @media (max-width: $small-breakpoint) {
+        @content;
+    }
+}
+
+@mixin mediaBig {
+    @media (min-width: $small-breakpoint + 1) {
+        @content;
+    }
+}
 
 * {
     margin: 0;
@@ -26,6 +42,12 @@ body {
     background-position: center;
     color: $fontColor;
     overflow: hidden;
+
+    @include mediaSmall {
+        display: block;
+        padding: $base*10 $base*5;
+        background-image: url('../static/bg_mobile.jpg');
+    }
 }
 
 .h1 {
@@ -35,6 +57,12 @@ body {
     line-height: 0.8em;
     color: $orange;
     opacity: 0.8;
+
+    @include mediaSmall {
+        font-size: 60px;
+        margin-top: 0;
+        text-align: center;
+    }
 }
 
 .h2 {
@@ -43,6 +71,10 @@ body {
     text-align: center;
     color: $orange;
     opacity: 0.8;
+
+    @include mediaSmall {
+        font-size: 14px;
+    }
 }
 
 .loading {
@@ -94,8 +126,10 @@ body {
     will-change: top, right, bottom, left, transform;
     transition: opacity $animationBase, transform $animationBase, top $animationBase, right $animationBase, bottom $animationBase, left $animationBase;
 
-    &:hover .overlay {
-        opacity: 1;
+    @include mediaBig {
+        &:hover .overlay {
+            opacity: 1;
+        }
     }
 }
 
@@ -106,7 +140,12 @@ body {
 .a_photo {
     left: $introPadding + 5vw;
     transform-origin: top left;
+
+    @include mediaSmall {
+        top: calc(#{$introMobilePadding} + #{$introAnimationMobileHeight - 10});
+    }
 }
+
 .a_design {
     left: $introPadding + $introAnimationWidth;
     transform-origin: bottom left;
@@ -114,10 +153,34 @@ body {
     .overlay {
         align-items: flex-start;
     }
+
+    @include mediaSmall {
+        top: $introMobilePadding;
+    }
 }
+
 .a_illu {
     right: $introPadding + 5vw;
     transform-origin: top right;
+
+    @include mediaSmall {
+        top: calc(#{$introMobilePadding} + #{($introAnimationMobileHeight - 10) * 2});
+    }
+}
+
+.intro__link {
+    @include mediaSmall {
+        left: 0;
+        right: 0;
+        width: auto;
+        transform: translateY(0);
+    }
+}
+
+.intro__container {
+    @include mediaSmall {
+        height: $introAnimationMobileHeight;
+    }
 }
 
 .intro--done {
@@ -125,21 +188,33 @@ body {
         pointer-events: auto;
     }
 
-    .a_photo {
-        top: 0;
-        left: 0;
-        transform: translateY(-10%) scale(.5);
+    @include mediaBig {
+    
+        .a_photo {
+            top: 0;
+            left: 0;
+            transform: translateY(-10%) scale(.5);
+        }
+        .a_design {
+            left: 0;
+            top: auto;
+            bottom: 0;
+            transform: translateY(10%) scale(.5);
+        }
+        .a_illu {
+            right: 0;
+            top: 0;
+            transform: translateY(-10%) scale(.5);
+        }
     }
-    .a_design {
-        left: 0;
-        top: auto;
-        bottom: 0;
-        transform: translateY(10%) scale(.5);
-    }
-    .a_illu {
-        right: 0;
-        top: 0;
-        transform: translateY(-10%) scale(.5);
+
+    @include mediaSmall {
+        .overlay {
+            opacity: 1;
+            align-items: flex-end;
+            padding: 0 0 10%;
+            font-size: 18px;
+        }
     }
 }
 
@@ -147,11 +222,18 @@ body {
     opacity: 0;
     transform: perspective(100px) translateZ(-300px);
     transition: opacity .4s ease, transform .4s ease;
+
+    @include mediaSmall {
+        opacity: 1;
+        transform: none;
+    }
 }
 
 .main--show {
-    opacity: 1;
-    transform: perspective(100px) translateZ(0);
+    @include mediaBig {
+        opacity: 1;
+        transform: perspective(100px) translateZ(0);
+    }
 }
 
 .footer {
@@ -164,13 +246,21 @@ body {
     padding: $base*2 $base*8 $base*4;
 }
 
+.footer__links {
+    @include mediaSmall {
+        display: none;
+    }
+}
+
 .footer__link {
     color: $fontColor;
     text-decoration: none;
     transition: color.4s ease;
 
-    &:hover {
-        color: $orange;
+    @include mediaBig {
+        &:hover {
+            color: $orange;
+        }
     }
 }
 
