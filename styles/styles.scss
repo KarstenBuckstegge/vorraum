@@ -9,7 +9,7 @@ $introPadding: (100vw - $introWidth) / 2;
 $introAnimationWidth: $introWidth/3;
 
 $introMobilePadding: 60px;
-$introAnimationMobileHeight: 35vh;
+$introAnimationMobileHeight: 40vh;
 
 @mixin mediaSmall {
     @media (max-width: $small-breakpoint) {
@@ -143,6 +143,7 @@ body {
 
     @include mediaSmall {
         top: calc(#{$introMobilePadding} + #{$introAnimationMobileHeight - 10});
+        left: 0;
     }
 }
 
@@ -156,6 +157,8 @@ body {
 
     @include mediaSmall {
         top: $introMobilePadding;
+        left: 0;
+        right: 0;
     }
 }
 
@@ -164,14 +167,13 @@ body {
     transform-origin: top right;
 
     @include mediaSmall {
-        top: calc(#{$introMobilePadding} + #{($introAnimationMobileHeight - 10) * 2});
+        top: calc(#{$introMobilePadding} + #{$introAnimationMobileHeight - 10});
+        right: 0;
     }
 }
 
 .intro__link {
     @include mediaSmall {
-        left: 0;
-        right: 0;
         width: auto;
         transform: translateY(0);
     }
@@ -180,6 +182,12 @@ body {
 .intro__container {
     @include mediaSmall {
         height: $introAnimationMobileHeight;
+    }
+}
+
+.a_photo__container, .a_illu__container {
+    @include mediaSmall {
+        width: 50vw;
     }
 }
 
